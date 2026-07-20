@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="180" viewBox="0 0 480 180" role="img" aria-label="Banco Finterra">
+<rect width="480" height="180" rx="24" fill="#ffffff"/>
+<circle cx="78" cy="90" r="42" fill="#6f1422"/>
+<text x="78" y="102" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#ffffff">BF</text>
+<text x="140" y="99" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#242424">Banco Finterra</text>
+<rect x="1" y="1" width="478" height="178" rx="23" fill="none" stroke="#dedede"/>
+</svg>
