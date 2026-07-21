@@ -12,9 +12,8 @@
 - Crédito hipotecario para compra de casa
 - Compra de terreno
 - Construcción
-- Compra de local comercial
-- Crédito de liquidez
-- Financiamiento para PyMEs
+- Liquidez hipotecaria
+- Mejora de hipoteca
 
 ## Diferenciadores
 - Más de 25 años de experiencia en banca
