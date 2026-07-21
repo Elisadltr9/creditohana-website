@@ -25,26 +25,48 @@ document.querySelector('.menu-toggle').addEventListener('click',e=>{
   e.currentTarget.setAttribute('aria-expanded',menu.classList.contains('open'));
 });
 menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
-const accordionTriggers=document.querySelectorAll('.accordion-trigger');
-accordionTriggers.forEach(trigger=>{
-  const panel=document.getElementById(trigger.getAttribute('aria-controls'));
-  if(!panel) return;
-  if(trigger.getAttribute('aria-expanded')==='true') panel.classList.add('open');
-  trigger.addEventListener('click',()=>{
-    const isOpen=trigger.getAttribute('aria-expanded')==='true';
-    accordionTriggers.forEach(other=>{
-      const otherPanel=document.getElementById(other.getAttribute('aria-controls'));
-      other.setAttribute('aria-expanded','false');
-      if(otherPanel) otherPanel.classList.remove('open');
+document.querySelectorAll('.premium-accordion').forEach(accordion=>{
+  const triggers=accordion.querySelectorAll('.accordion-trigger');
+  triggers.forEach(trigger=>{
+    const panel=document.getElementById(trigger.getAttribute('aria-controls'));
+    if(!panel) return;
+    if(trigger.getAttribute('aria-expanded')==='true') panel.classList.add('open');
+    trigger.addEventListener('click',()=>{
+      const isOpen=trigger.getAttribute('aria-expanded')==='true';
+      triggers.forEach(other=>{
+        const otherPanel=document.getElementById(other.getAttribute('aria-controls'));
+        other.setAttribute('aria-expanded','false');
+        if(otherPanel) otherPanel.classList.remove('open');
+      });
+      if(!isOpen){
+        trigger.setAttribute('aria-expanded','true');
+        panel.classList.add('open');
+      }
     });
-    if(!isOpen){
-      trigger.setAttribute('aria-expanded','true');
-      panel.classList.add('open');
-    }
   });
 });
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const counters=document.querySelectorAll('.counter');
+const counterObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting) return;
+    const counter=entry.target;
+    const target=Number(counter.dataset.target)||0;
+    const suffix=counter.dataset.suffix||'';
+    const duration=1200;
+    const start=performance.now();
+    const tick=now=>{
+      const progress=Math.min((now-start)/duration,1);
+      const eased=1-Math.pow(1-progress,3);
+      counter.textContent=`${Math.round(target*eased)}${suffix}`;
+      if(progress<1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    counterObserver.unobserve(counter);
+  });
+},{threshold:.45});
+counters.forEach(counter=>counterObserver.observe(counter));
 document.getElementById('year').textContent=new Date().getFullYear();
 const estimatorForm=document.getElementById('mortgageEstimatorForm');
 const propertyValueInput=document.getElementById('propertyValue');
