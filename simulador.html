@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CREDITOHANA: asesoría hipotecaria personalizada en todo México. Más de 25 años de experiencia en banca y soluciones de crédito a la medida." />
+  <meta name="theme-color" content="#681725" />
+  <title>Simulador hipotecario | CREDITOHANA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header" id="inicio">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Ir al inicio">
+        <img src="assets/images/logo-creditohana-claro-nav.jpeg" alt="CREDITOHANA" />
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Menú principal">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="proceso.html">Proceso</a>
+        <a href="instituciones.html">Instituciones</a>
+        <a class="active" href="simulador.html">Simulador</a>
+        <a href="ventajas.html">¿Por qué CREDITOHANA?</a>
+        <a href="acerca.html">Acerca de</a>
+        <a href="preguntas.html">Preguntas</a>
+        <a class="btn btn-sm" href="https://wa.me/528713373335?text=Hola%20Bego%C3%B1a%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20cr%C3%A9dito." target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+<section class="section estimator" id="simulador">
+      <div class="container estimator-wrap">
+        <div class="section-heading reveal">
+          <p class="section-kicker">SIMULADOR</p>
+          <h2>Estima tu pago mensual con una tasa fija y criterio financiero.</h2>
+        </div>
+        <div class="estimator-card reveal">
+          <form class="estimator-form" id="mortgageEstimatorForm">
+            <div class="estimator-form-heading">
+              <span class="estimator-heading-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13v-9.5"/><path d="M9.5 20v-6h5v6"/></svg>
+              </span>
+              <div>
+                <h3>Simula tu crédito hipotecario</h3>
+                <p>Obtén una estimación rápida de tu mensualidad.</p>
+              </div>
+            </div>
+            <div class="field-grid">
+              <div class="estimator-input-block">
+                <label class="field" for="propertyValue">
+                  <span>Valor del inmueble</span>
+                  <div class="field-shell">
+                    <span class="field-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13v-9.5"/><path d="M9.5 20v-6h5v6"/></svg>
+                    </span>
+                    <input type="text" id="propertyValue" inputmode="numeric" value="$3,000,000 MXN" placeholder="$3,000,000 MXN" />
+                    <span class="field-unit">MXN</span>
+                  </div>
+                </label>
+                <p>Ingresa el valor total de la propiedad que deseas adquirir.</p>
+              </div>
+              <div class="estimator-input-block">
+                <label class="field down-payment-field" for="downPayment">
+                  <span>Enganche</span>
+                  <div class="field-shell">
+                    <span class="field-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M17 7.5A4 4 0 0 0 12.8 6H10a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-3.2A4 4 0 0 1 7 16.5"/></svg>
+                    </span>
+                    <input type="text" id="downPayment" inputmode="decimal" value="$400,000 MXN" placeholder="$400,000 MXN" />
+                  </div>
+                  <select class="sr-only" id="downPaymentMode" aria-label="Formato del enganche">
+                    <option value="amount" selected>MXN</option>
+                    <option value="percent">%</option>
+                  </select>
+                </label>
+                <div class="segmented-control" role="group" aria-label="Formato del enganche">
+                  <button class="active" type="button" data-down-payment-mode="amount" aria-pressed="true">MXN</button>
+                  <button type="button" data-down-payment-mode="percent" aria-pressed="false">%</button>
+                </div>
+                <div class="down-payment-summary-card">
+                  <strong id="downPaymentSummaryAmount">$400,000 MXN</strong>
+                  <span id="downPaymentSummary">13.33% del valor del inmueble</span>
+                </div>
+              </div>
+              <div class="estimator-input-block">
+                <label class="field" for="loanTerm">
+                  <span>Plazo</span>
+                  <select class="sr-only" id="loanTerm">
+                  <option value="5">5 años</option>
+                  <option value="10">10 años</option>
+                  <option value="15">15 años</option>
+                  <option value="20" selected>20 años</option>
+                  <option value="25">25 años</option>
+                  </select>
+                </label>
+                <div class="term-chip-group" role="radiogroup" aria-label="Plazo del crédito">
+                  <button type="button" data-loan-term="5" role="radio" aria-checked="false">5 años</button>
+                  <button type="button" data-loan-term="10" role="radio" aria-checked="false">10 años</button>
+                  <button type="button" data-loan-term="15" role="radio" aria-checked="false">15 años</button>
+                  <button class="active" type="button" data-loan-term="20" role="radio" aria-checked="true">20 años</button>
+                  <button type="button" data-loan-term="25" role="radio" aria-checked="false">25 años</button>
+                </div>
+                <p>Selecciona el plazo en el que deseas pagar tu crédito.</p>
+              </div>
+            </div>
+            <p class="estimator-helper"><span aria-hidden="true">i</span><strong>Esta simulación utiliza una tasa anual referencial de 10.50%.</strong> La tasa final dependerá de la institución financiera, el producto seleccionado y el perfil del solicitante.</p>
+          </form>
+
+          <div class="estimator-results" aria-live="polite">
+            <div class="result-card accent">
+              <span>Mensualidad estimada</span>
+              <strong id="estimatedMonthlyPayment">$0 MXN</strong>
+              <small>Capital e intereses</small>
+            </div>
+            <div class="result-card">
+              <span>Monto estimado del crédito</span>
+              <strong id="estimatedLoanAmount">$0 MXN</strong>
+            </div>
+            <div class="result-card">
+              <span>Valor del inmueble</span>
+              <strong id="estimatedPropertyValue">$0 MXN</strong>
+            </div>
+            <div class="result-card">
+              <span>Enganche</span>
+              <strong id="estimatedDownPayment">$0 MXN</strong>
+              <small id="estimatedDownPaymentPercent">0%</small>
+            </div>
+            <div class="result-card">
+              <span>Plazo</span>
+              <strong id="estimatedTerm">20 años / 240 mensualidades</strong>
+            </div>
+            <div class="result-card">
+              <span>Ingreso mensual de referencia</span>
+              <strong id="suggestedIncome">$0 MXN</strong>
+              <small>Es únicamente una referencia. La institución financiera también evalúa historial crediticio, ingresos, deudas actuales y otros factores.</small>
+            </div>
+            <p class="estimator-disclaimer">Esta simulación considera únicamente capital e intereses. No incluye seguros, comisiones, avalúo, escrituración, impuestos ni otros gastos que puedan aplicar.</p>
+            <p class="estimator-disclaimer">Los resultados son únicamente informativos y no representan una aprobación ni una oferta de crédito.</p>
+            <p class="estimator-error" id="estimatorError" role="alert"></p>
+            <a class="btn btn-primary estimator-button" id="estimatorCta" href="https://wa.me/528713373335?text=Hola%20Bego%C3%B1a%2C%20quiero%20una%20asesor%C3%ADa%20personalizada%20sobre%20mi%20simulaci%C3%B3n%20de%20cr%C3%A9dito." target="_blank" rel="noopener">Solicitar una asesoría personalizada</a>
+          </div>
+        </div>
+        <div class="estimator-followup reveal">
+          <article class="simulator-note">
+            <h3>Nota importante</h3>
+            <p>Cada situación financiera es diferente. Si actualmente pagas un crédito automotriz, tarjetas de crédito, préstamos u otros compromisos financieros, tu capacidad de crédito puede reducirse de acuerdo con las políticas de cada institución.</p>
+            <p>La tasa utilizada en este simulador es únicamente referencial. La tasa, mensualidad, monto autorizado y condiciones finales pueden variar según tu perfil, ingresos, historial crediticio y la institución financiera.</p>
+            <p>Esta herramienta busca darte una estimación inicial de cuánto podrías pagar y qué ingreso mensual podría ser recomendable. Los resultados no representan una aprobación ni una oferta de crédito.</p>
+          </article>
+
+          <div class="simulator-contact">
+            <div class="simulator-contact-copy">
+              <h3>¿Quieres conocer las opciones disponibles para tu perfil?</h3>
+              <p>Déjanos tus datos y una asesora de CREDITOHANA te ayudará a comparar alternativas entre diferentes instituciones financieras.</p>
+            </div>
+            <form class="simulator-contact-form" id="simulatorContactForm">
+              <label>Nombre completo<input type="text" name="name" required autocomplete="name" /></label>
+              <label>WhatsApp<input type="tel" name="whatsapp" required autocomplete="tel" /></label>
+              <label>Correo electrónico<input type="email" name="email" required autocomplete="email" /></label>
+              <label>Ciudad o estado<input type="text" name="city" required autocomplete="address-level1" /></label>
+              <label>Valor aproximado del inmueble<input type="number" name="propertyEstimate" min="0" step="1000" placeholder="Opcional" /></label>
+              <label>Mensaje<textarea name="message" rows="4" placeholder="Opcional"></textarea></label>
+              <button class="btn btn-primary" type="submit">Solicitar asesoría personalizada</button>
+              <p>Al enviar tus datos, aceptas ser contactado por CREDITOHANA. El envío de esta información no garantiza la aprobación de un crédito.</p>
+            </form>
+          </div>
+        <div class="section-actions reveal"><a class="btn btn-primary" href="contacto.html">Comenzar mi proceso</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <img src="assets/images/logo-creditohana-oscuro.jpeg" alt="CREDITOHANA" />
+        <p>Construimos juntos tu futuro financiero.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Servicios</h3>
+        <a href="servicios.html">Compra de casa</a>
+        <a href="servicios.html">Compra de terreno</a>
+        <a href="servicios.html">Construcción</a>
+        <a href="servicios.html">Liquidez hipotecaria</a>
+        <a href="servicios.html">Mejora de hipoteca</a>
+        <a href="servicios.html">Crédito para tu negocio</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contacto</h3>
+        <a href="tel:+528713373335">871 337 3335</a>
+        <a href="mailto:ab.rivera@creditaria.com">ab.rivera@creditaria.com</a>
+        <p>Blvd. Independencia 2690, Interior 8</p>
+        <p>Plaza La Escondida, Torreón, Coahuila</p>
+      </div>
+      <div class="footer-col">
+        <h3>Follow us</h3>
+        <a href="#">Facebook</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> CREDITOHANA</span>
+      <div class="footer-links">
+        <a href="#">Privacy Notice</a>
+        <a href="#">Terms & Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/528713373335?text=Hola%20Bego%C3%B1a%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20cr%C3%A9dito." aria-label="Contactar por WhatsApp" target="_blank" rel="noopener">WA</a>
+  <script src="script.js"></script>
+</body>
+</html>

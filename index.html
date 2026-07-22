@@ -1,37 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="CREDITOHANA: asesoría hipotecaria personalizada en todo México. Más de 25 años de experiencia en banca y soluciones de crédito a la medida." />
   <meta name="theme-color" content="#681725" />
-  <title>CREDITOHANA | Crédito hipotecario a tu medida</title>
+  <title>CREDITOHANA | Asesoría hipotecaria premium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
   <header class="site-header" id="inicio">
     <div class="container nav-wrap">
-      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+      <a class="brand" href="index.html" aria-label="Ir al inicio">
         <img src="assets/images/logo-creditohana-claro-nav.jpeg" alt="CREDITOHANA" />
       </a>
-      <button class="menu-toggle" aria-expanded="false" aria-label="Abrir menú">☰</button>
-      <nav class="nav-links" aria-label="Navegación principal">
-        <a href="#servicios">Servicios</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#bancos">Instituciones</a>
-        <a href="#simulador">Simulador</a>
-        <a href="#nosotros">Acerca de</a>
-        <a href="#faq">Preguntas</a>
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Menú principal">
+        <a class="active" href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="proceso.html">Proceso</a>
+        <a href="instituciones.html">Instituciones</a>
+        <a href="simulador.html">Simulador</a>
+        <a href="ventajas.html">¿Por qué CREDITOHANA?</a>
+        <a href="acerca.html">Acerca de</a>
+        <a href="preguntas.html">Preguntas</a>
         <a class="btn btn-sm" href="https://wa.me/528713373335?text=Hola%20Bego%C3%B1a%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20cr%C3%A9dito." target="_blank" rel="noopener">WhatsApp</a>
       </nav>
     </div>
   </header>
-
   <main>
-    <section class="hero">
+
+<section class="hero">
       <div class="hero-glow"></div>
       <div class="container hero-grid">
         <div class="hero-copy reveal">
@@ -40,7 +43,7 @@
           <p class="hero-text">Analizamos tu perfil, comparamos alternativas y te acompañamos durante todo el proceso para encontrar condiciones que realmente se adapten a tus objetivos.</p>
           <div class="hero-actions">
             <a class="btn" href="https://wa.me/528713373335?text=Hola%20Bego%C3%B1a%2C%20me%20gustar%C3%ADa%20recibir%20una%20asesor%C3%ADa%20de%20cr%C3%A9dito." target="_blank" rel="noopener">Hablar por WhatsApp</a>
-            <a class="btn btn-ghost" href="#servicios">Conocer servicios</a>
+            <a class="btn btn-ghost" href="servicios.html">Conocer servicios</a>
           </div>
           <div class="trust-row">
             <div><strong>25+</strong><span>años en banca</span></div>
@@ -60,22 +63,20 @@
         </div>
       </div>
     </section>
-
-    <section class="section intro-strip">
+<section class="section intro-strip">
       <div class="container intro-grid reveal">
         <p class="section-kicker">CREDITOHANA</p>
         <h2>Decisiones financieras claras, seguras y bien estructuradas.</h2>
         <p>Mi compromiso es ayudarte a entender tus opciones, simplificar trámites y elegir un crédito que cuide tus finanzas hoy y en el futuro.</p>
       </div>
     </section>
-
-    <section class="section" id="servicios">
+    <section class="section home-preview" id="servicios-preview">
       <div class="container">
         <div class="section-heading reveal">
           <p class="section-kicker">SOLUCIONES DE CRÉDITO</p>
-          <h2>Financiamiento para cada etapa de tu patrimonio.</h2>
+          <h2>Servicios para iniciar con claridad.</h2>
         </div>
-        <div class="cards-grid">
+        <div class="cards-grid home-cards">
           <article class="service-card reveal">
             <div class="service-card-media">
               <img src="assets/images/compradecas.jpg" alt="Compra de casa" />
@@ -106,47 +107,17 @@
               <p>Créditos para construir, ampliar o desarrollar un proyecto habitacional.</p>
             </div>
           </article>
-          <article class="service-card reveal">
-            <div class="service-card-media">
-              <img src="assets/images/creditodeliquidez.jpg" alt="Liquidez hipotecaria" />
-            </div>
-            <div class="service-card-content">
-              <span>04</span>
-              <h3>Liquidez hipotecaria</h3>
-              <p>Obtén recursos utilizando un inmueble como respaldo, con una estructura responsable.</p>
-            </div>
-          </article>
-          <article class="service-card reveal">
-            <div class="service-card-media">
-              <img src="assets/images/compradecas.jpg" alt="Mejora de hipoteca" />
-            </div>
-            <div class="service-card-content">
-              <span>05</span>
-              <h3>Mejora de hipoteca</h3>
-              <p>Revisamos tu hipoteca actual para buscar mejores condiciones, costos o estructura.</p>
-            </div>
-          </article>
-          <article class="service-card reveal">
-            <div class="service-card-media">
-              <img src="assets/images/credito-para-tu-negocio.png" alt="Crédito para tu negocio" />
-            </div>
-            <div class="service-card-content">
-              <span>06</span>
-              <h3>Crédito para tu negocio</h3>
-              <p>Opciones de financiamiento para impulsar, ampliar o fortalecer tu negocio de acuerdo con tus necesidades y capacidad financiera.</p>
-            </div>
-          </article>
         </div>
+        <div class="section-actions reveal"><a class="btn btn-primary" href="servicios.html">Ver todos los servicios</a></div>
       </div>
     </section>
-
-    <section class="section section-dark" id="proceso">
+    <section class="section section-dark home-preview" id="proceso-preview">
       <div class="container">
         <div class="section-heading light reveal">
           <p class="section-kicker">ACOMPAÑAMIENTO TOTAL</p>
-          <h2>Un proceso simple, transparente y con seguimiento personal.</h2>
+          <h2>Un proceso claro desde la primera conversación.</h2>
         </div>
-        <div class="process-grid">
+        <div class="process-grid home-process">
           <article class="process-step reveal">
             <div class="process-step-head">
               <span class="process-step-number">1</span>
@@ -163,111 +134,17 @@
             <h3>Documentos</h3>
             <p>Revisamos y organizamos tu documentación para presentar un expediente sólido.</p>
           </article>
-          <article class="process-step reveal">
-            <div class="process-step-head">
-              <span class="process-step-number">3</span>
-              <div class="process-step-icon" aria-hidden="true">🏦</div>
-            </div>
-            <h3>Comparativa bancaria</h3>
-            <p>Contrastamos tasas, plazos y condiciones para seleccionar la propuesta más favorable.</p>
-          </article>
-          <article class="process-step reveal">
-            <div class="process-step-head">
-              <span class="process-step-number">4</span>
-              <div class="process-step-icon" aria-hidden="true">🤝</div>
-            </div>
-            <h3>Cierre y firma</h3>
-            <p>Acompañamos cada paso del cierre del crédito para que tu experiencia sea segura y directa.</p>
-          </article>
         </div>
+        <div class="section-actions reveal"><a class="btn btn-primary" href="proceso.html">Conocer el proceso</a></div>
       </div>
     </section>
-
-    <section class="section estimator" id="simulador">
-      <div class="container estimator-wrap">
-        <div class="section-heading reveal">
-          <p class="section-kicker">SIMULADOR</p>
-          <h2>Estima tu pago mensual con una tasa fija y criterio financiero.</h2>
-        </div>
-        <div class="estimator-card reveal">
-          <form class="estimator-form" id="mortgageEstimatorForm">
-            <div class="field-grid">
-              <label class="field">
-                <span>Valor de la propiedad</span>
-                <input type="number" id="propertyValue" min="0" step="1000" value="1800000" placeholder="Ej. 1,800,000" />
-              </label>
-              <label class="field">
-                <span>Enganche (monto)</span>
-                <input type="number" id="downPaymentAmount" min="0" step="1000" placeholder="Ej. 360,000" />
-              </label>
-              <label class="field">
-                <span>Enganche (%)</span>
-                <input type="number" id="downPaymentPercent" min="0" max="100" step="0.1" value="20" placeholder="20" />
-              </label>
-              <label class="field">
-                <span>Plazo</span>
-                <select id="loanTerm">
-                  <option value="10">10 años</option>
-                  <option value="15">15 años</option>
-                  <option value="20">20 años</option>
-                  <option value="25">25 años</option>
-                  <option value="30" selected>30 años</option>
-                </select>
-              </label>
-              <label class="field">
-                <span>Tasa anual estimada</span>
-                <div class="field-with-unit">
-                  <input type="number" id="interestRate" min="0" step="0.01" value="9.5" placeholder="9.50" />
-                  <span>%</span>
-                </div>
-              </label>
-            </div>
-          </form>
-
-          <div class="estimator-results" aria-live="polite">
-            <div class="result-card">
-              <span>Monto estimado del préstamo</span>
-              <strong id="estimatedLoanAmount">$0</strong>
-            </div>
-            <div class="result-card">
-              <span>Pago mensual estimado</span>
-              <strong id="estimatedMonthlyPayment">$0</strong>
-            </div>
-            <div class="result-card">
-              <span>Enganche estimado</span>
-              <strong id="estimatedDownPayment">$0</strong>
-            </div>
-            <div class="result-card accent">
-              <span>Monto total financiado</span>
-              <strong id="totalFinancedAmount">$0</strong>
-            </div>
-            <p class="estimator-disclaimer">Esta simulación es para fines informativos únicamente. La tasa final, CAT, seguros, comisiones y la aprobación del crédito dependen de la institución financiera y del perfil del solicitante.</p>
-            <a class="btn btn-primary estimator-button" id="estimatorCta" href="https://wa.me/528713373335?text=Hola%20Bego%C3%B1a%2C%20quiero%20una%20asesor%C3%ADa%20personalizada%20sobre%20mi%20simulaci%C3%B3n%20de%20cr%C3%A9dito." target="_blank" rel="noopener">Solicitar una asesoría personalizada</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="bancos">
-      <div class="container">
-        <div class="section-heading reveal">
-          <p class="section-kicker">INSTITUCIONES FINANCIERAS</p>
-          <h2>Trabajamos con las principales instituciones financieras de México</h2>
-          <p>Comparamos distintas opciones para ayudarte a encontrar el crédito que mejor se adapte a tus necesidades.</p>
-        </div>
-        <div class="bank-grid" id="bankGrid"></div>
-        <p class="bank-note">Comparamos distintas opciones para ayudarte a encontrar el crédito que mejor se adapte a tus necesidades.</p>
-      </div>
-    </section>
-
-    <section class="section why-creditohana" id="porque">
+    <section class="section why-creditohana home-preview" id="ventajas-preview">
       <div class="container">
         <div class="section-heading why-heading reveal">
           <p class="section-kicker">CREDITOHANA</p>
-          <h2>¿Por qué elegir CREDITOHANA?</h2>
-          <p>Te acompañamos durante todo el proceso para encontrar el crédito hipotecario que mejor se adapte a tus necesidades.</p>
+          <h2>Beneficios de trabajar con una asesora hipotecaria.</h2>
         </div>
-        <div class="why-grid">
+        <div class="why-grid home-benefits">
           <article class="why-card reveal">
             <div class="why-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
@@ -289,276 +166,76 @@
             <h3>Acompañamiento completo</h3>
             <p>Te guiamos desde el inicio hasta la firma.</p>
           </article>
-          <article class="why-card reveal">
-            <div class="why-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7Z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
-            </div>
-            <h3>Apoyo con documentación</h3>
-            <p>Te ayudamos a preparar correctamente tu expediente.</p>
-          </article>
-          <article class="why-card reveal">
-            <div class="why-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11Z"/><path d="M12 10h.01"/></svg>
-            </div>
-            <h3>Atención en todo México</h3>
-            <p>Trabajamos con clientes en cualquier parte del país.</p>
-          </article>
-          <article class="why-card reveal">
-            <div class="why-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 6H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"/></svg>
-            </div>
-            <h3>Asesoría sin costo</h3>
-            <p>Nuestro servicio es completamente gratuito para el cliente.</p>
-          </article>
         </div>
-        <div class="why-highlight reveal">
-          <h3>Lo mejor de todo…</h3>
-          <p>Nuestra asesoría es completamente gratuita. Te ayudamos a comparar bancos, revisar tu expediente y acompañarte durante todo el proceso sin costo para ti.</p>
-          <a class="btn btn-primary" href="https://wa.me/528713373335?text=Hola%20Bego%C3%B1a%2C%20quiero%20agendar%20una%20asesor%C3%ADa." target="_blank" rel="noopener">Agenda tu asesoría</a>
-        </div>
+        <div class="section-actions reveal"><a class="btn btn-primary" href="ventajas.html">Conocer todas las ventajas</a></div>
       </div>
     </section>
-
-    <section class="section about" id="nosotros">
-      <div class="container about-container">
-        <div class="about-grid">
-          <div class="about-copy reveal">
-            <p class="section-kicker">CONOCE A TU BROKER</p>
-            <h2>Experiencia bancaria convertida en estrategia para ti.</h2>
-            <span class="badge">Broker Hipotecaria</span>
-            <p class="about-subtitle">Más de 25 años de experiencia ayudando a las personas a tomar mejores decisiones financieras.</p>
-            <p class="about-intro">Begoña se especializa en ayudar a clientes a obtener la mejor solución hipotecaria según sus necesidades, comparando alternativas de manera estratégica y acompañando cada trámite con criterio financiero.</p>
-            <div class="about-accordion reveal">
-              <div class="broker-accordion premium-accordion" id="brokerAccordion">
-                <div class="accordion-item">
-                  <button type="button" class="accordion-trigger" aria-expanded="true" aria-controls="accordion-panel-1" id="accordion-button-1">
-                    <span class="accordion-title">Obtención de crédito hipotecario</span>
-                    <span class="accordion-icon" aria-hidden="true"></span>
-                  </button>
-                  <div class="accordion-panel open" id="accordion-panel-1" role="region" aria-labelledby="accordion-button-1">
-                    <p>Procesos ágiles para lograr el financiamiento correcto con claridad.</p>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="accordion-panel-2" id="accordion-button-2">
-                    <span class="accordion-title">Estrategia personalizada</span>
-                    <span class="accordion-icon" aria-hidden="true"></span>
-                  </button>
-                  <div class="accordion-panel" id="accordion-panel-2" role="region" aria-labelledby="accordion-button-2">
-                    <p>Opciones diseñadas para tu situación financiera y planes de futuro.</p>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="accordion-panel-3" id="accordion-button-3">
-                    <span class="accordion-title">Gestión con instituciones financieras</span>
-                    <span class="accordion-icon" aria-hidden="true"></span>
-                  </button>
-                  <div class="accordion-panel" id="accordion-panel-3" role="region" aria-labelledby="accordion-button-3">
-                    <p>Coordinamos trámites con bancos para presentar un expediente sólido.</p>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="accordion-panel-4" id="accordion-button-4">
-                    <span class="accordion-title">Mejores condiciones disponibles</span>
-                    <span class="accordion-icon" aria-hidden="true"></span>
-                  </button>
-                  <div class="accordion-panel" id="accordion-panel-4" role="region" aria-labelledby="accordion-button-4">
-                    <p>Buscamos tasas, plazos y costos competitivos adaptados a tu perfil.</p>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="accordion-panel-5" id="accordion-button-5">
-                    <span class="accordion-title">Acompañamiento de principio a fin</span>
-                    <span class="accordion-icon" aria-hidden="true"></span>
-                  </button>
-                  <div class="accordion-panel" id="accordion-panel-5" role="region" aria-labelledby="accordion-button-5">
-                    <p>Te apoyamos desde la consulta inicial hasta la firma del crédito.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="about-visual reveal">
-            <div class="about-portrait">
-              <img src="assets/images/begona-rivera-profesional.jpeg" alt="Begoña Rivera, broker hipotecaria de CREDITOHANA" />
-            </div>
-            <div class="broker-commitment">
-              <h3>Mi compromiso contigo</h3>
-              <p>Te acompaño con claridad, criterio financiero y atención personal para que tomes decisiones informadas durante todo el proceso.</p>
-              <div class="commitment-list">
-                <article class="commitment-block">
-                  <span>✓</span>
-                  <div>
-                    <h4>Transparencia total</h4>
-                    <p>Conoces costos, tiempos y condiciones antes de decidir.</p>
-                  </div>
-                </article>
-                <article class="commitment-block">
-                  <span>✓</span>
-                  <div>
-                    <h4>Análisis personalizado</h4>
-                    <p>Cada recomendación parte de tu perfil y tus objetivos.</p>
-                  </div>
-                </article>
-                <article class="commitment-block">
-                  <span>✓</span>
-                  <div>
-                    <h4>Seguimiento puntual</h4>
-                    <p>Te acompaño en cada etapa hasta la firma del crédito.</p>
-                  </div>
-                </article>
-                <article class="commitment-block">
-                  <span>✓</span>
-                  <div>
-                    <h4>Decisiones responsables</h4>
-                    <p>Priorizamos una estructura sana para tu patrimonio.</p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section results" id="resultados">
+    <section class="section home-preview" id="instituciones-preview">
       <div class="container">
         <div class="section-heading reveal">
-          <p class="section-kicker">RESULTADOS</p>
-          <h2>Resultados respaldados por experiencia</h2>
+          <p class="section-kicker">INSTITUCIONES FINANCIERAS</p>
+          <h2>Opciones con instituciones financieras de México.</h2>
+          <p>Comparamos distintas opciones para ayudarte a encontrar el crédito que mejor se adapte a tus necesidades.</p>
         </div>
-        <div class="stats-grid reveal">
-          <article class="stat-item">
-            <strong class="counter" data-target="25" data-suffix="+">0</strong>
-            <span>Años de experiencia</span>
-          </article>
-          <article class="stat-item">
-            <strong class="counter" data-target="8">0</strong>
-            <span>Instituciones financieras</span>
-          </article>
-          <article class="stat-item">
-            <strong>Nacional</strong>
-            <span>Cobertura</span>
-          </article>
-          <article class="stat-item">
-            <strong class="counter" data-target="100" data-suffix="%">0</strong>
-            <span>Atención personalizada</span>
-          </article>
+        <div class="bank-grid bank-grid-preview reveal">
+          <div class="bank-card"><img src="assets/banks/Afirme_logo.svg.png" alt="Institución financiera Afirme" loading="lazy" /></div>
+          <div class="bank-card"><img src="assets/banks/Logo_de_Banregio.svg.png" alt="Institución financiera Banregio" loading="lazy" /></div>
+          <div class="bank-card"><img src="assets/banks/Logo_de_Banorte.svg.png" alt="Institución financiera Banorte" loading="lazy" /></div>
+          <div class="bank-card"><img src="assets/banks/Banco_Santander_Logotipo.svg.png" alt="Institución financiera Santander" loading="lazy" /></div>
         </div>
+        <div class="section-actions reveal"><a class="btn btn-primary" href="instituciones.html">Ver todas las instituciones</a></div>
       </div>
     </section>
-
-    <section class="section testimonials" id="testimonios">
-      <div class="container">
-        <div class="testimonial-grid">
-          <article class="testimonial-card reveal">
-            <div class="stars" aria-label="Cinco estrellas">★★★★★</div>
-            <p>“Begoña nos explicó cada opción con mucha claridad y nos ayudó a elegir un crédito que realmente podíamos sostener.”</p>
-            <strong>Mariana G.</strong>
-          </article>
-          <article class="testimonial-card reveal">
-            <div class="stars" aria-label="Cinco estrellas">★★★★★</div>
-            <p>“El acompañamiento fue impecable. Sentimos orden, seguimiento y una asesoría muy humana durante todo el trámite.”</p>
-            <strong>Carlos M.</strong>
-          </article>
-          <article class="testimonial-card reveal">
-            <div class="stars" aria-label="Cinco estrellas">★★★★★</div>
-            <p>“Comparó escenarios que no habíamos considerado y logró que el proceso fuera mucho más sencillo de lo esperado.”</p>
-            <strong>Laura R.</strong>
-          </article>
-        </div>
+    <section class="section home-simulator-cta">
+      <div class="container home-cta-panel reveal">
+        <p class="section-kicker">SIMULADOR</p>
+        <h2>Calcula una mensualidad aproximada con nuestro simulador hipotecario.</h2>
+        <a class="btn btn-primary" href="simulador.html">Simular mi crédito</a>
       </div>
     </section>
-
-    <section class="section faq" id="faq">
+    <section class="section faq home-preview" id="preguntas-preview">
       <div class="container faq-grid">
         <div class="section-heading reveal">
           <p class="section-kicker">PREGUNTAS FRECUENTES</p>
-          <h2>Lo que necesitas saber antes de iniciar.</h2>
+          <h2>Dudas comunes antes de iniciar.</h2>
         </div>
-        <div class="faq-accordion premium-accordion reveal" id="faqAccordion">
+        <div class="faq-accordion premium-accordion reveal" id="homeFaqAccordion">
           <div class="accordion-item">
-            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-1" id="faq-button-1">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="home-faq-panel-1" id="home-faq-button-1">
               <span class="accordion-title">¿Cuánto necesito ganar para obtener un crédito hipotecario?</span>
               <span class="accordion-icon" aria-hidden="true"></span>
             </button>
-            <div class="accordion-panel" id="faq-panel-1" role="region" aria-labelledby="faq-button-1">
+            <div class="accordion-panel" id="home-faq-panel-1" role="region" aria-labelledby="home-faq-button-1">
               <p>Depende del monto solicitado, plazo, tasa, deudas actuales y políticas de cada institución. Primero revisamos tu capacidad de pago para estimar un rango realista.</p>
             </div>
           </div>
           <div class="accordion-item">
-            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-2" id="faq-button-2">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="home-faq-panel-2" id="home-faq-button-2">
               <span class="accordion-title">¿Puedo solicitar un crédito si trabajo por mi cuenta?</span>
               <span class="accordion-icon" aria-hidden="true"></span>
             </button>
-            <div class="accordion-panel" id="faq-panel-2" role="region" aria-labelledby="faq-button-2">
+            <div class="accordion-panel" id="home-faq-panel-2" role="region" aria-labelledby="home-faq-button-2">
               <p>Sí. Existen alternativas para personas independientes, aunque la documentación para comprobar ingresos puede variar.</p>
             </div>
           </div>
           <div class="accordion-item">
-            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-3" id="faq-button-3">
+            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="home-faq-panel-3" id="home-faq-button-3">
               <span class="accordion-title">¿Qué documentos necesito?</span>
               <span class="accordion-icon" aria-hidden="true"></span>
             </button>
-            <div class="accordion-panel" id="faq-panel-3" role="region" aria-labelledby="faq-button-3">
+            <div class="accordion-panel" id="home-faq-panel-3" role="region" aria-labelledby="home-faq-button-3">
               <p>Generalmente identificación, comprobantes de ingresos, estados de cuenta, comprobante de domicilio e información del inmueble. La lista final depende de la institución y el producto.</p>
             </div>
           </div>
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-4" id="faq-button-4">
-              <span class="accordion-title">¿Puedo mejorar una oferta que ya me dio mi banco?</span>
-              <span class="accordion-icon" aria-hidden="true"></span>
-            </button>
-            <div class="accordion-panel" id="faq-panel-4" role="region" aria-labelledby="faq-button-4">
-              <p>Podemos revisar la oferta, comparar costo total, plazo, tasa, seguros y comisiones para saber si existe una alternativa más conveniente.</p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-5" id="faq-button-5">
-              <span class="accordion-title">¿Atienden fuera de Torreón?</span>
-              <span class="accordion-icon" aria-hidden="true"></span>
-            </button>
-            <div class="accordion-panel" id="faq-panel-5" role="region" aria-labelledby="faq-button-5">
-              <p>Sí. CREDITOHANA brinda asesoría en todo México y puede acompañar gran parte del proceso de manera remota.</p>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <button type="button" class="accordion-trigger" aria-expanded="false" aria-controls="faq-panel-6" id="faq-button-6">
-              <span class="accordion-title">¿La asesoría garantiza la aprobación?</span>
-              <span class="accordion-icon" aria-hidden="true"></span>
-            </button>
-            <div class="accordion-panel" id="faq-panel-6" role="region" aria-labelledby="faq-button-6">
-              <p>No. La decisión final corresponde a cada institución financiera. La asesoría ayuda a presentar un expediente mejor preparado y elegir opciones compatibles con tu perfil.</p>
-            </div>
-          </div>
+          <div class="section-actions reveal"><a class="btn btn-primary" href="preguntas.html">Ver todas las preguntas</a></div>
         </div>
       </div>
     </section>
-
-    <section class="section contact" id="contacto">
-      <div class="container contact-grid">
-        <div class="contact-copy reveal">
-          <p class="section-kicker">COMENCEMOS</p>
-          <h2>Cuéntame qué quieres financiar.</h2>
-          <p class="contact-intro">Completa estos datos y al enviar se abrirá WhatsApp con tu mensaje listo.</p>
-          <div class="contact-details">
-            <a class="contact-detail" href="tel:+528713373335"><span class="contact-icon">📞</span><span>871 337 3335</span></a>
-            <a class="contact-detail" href="mailto:ab.rivera@creditaria.com"><span class="contact-icon">✉️</span><span>ab.rivera@creditaria.com</span></a>
-            <div class="contact-detail"><span class="contact-icon">📍</span><span>Torreón, Coahuila</span></div>
-            <div class="contact-detail"><span class="contact-icon">🕒</span><span>Lun - Vie | 9:00 - 19:00</span></div>
-            <div class="contact-detail"><span class="contact-icon">⚡</span><span>Respuesta en menos de 24 horas</span></div>
-          </div>
-          <a class="btn btn-primary contact-left-button" href="https://wa.me/528713373335?text=Hola%20Bego%C3%B1a%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20cr%C3%A9dito." target="_blank" rel="noopener">Hablar por WhatsApp</a>
-        </div>
-        <form class="contact-form reveal" id="whatsappForm">
-          <label>Nombre<input type="text" name="name" required placeholder="Tu nombre" /></label>
-          <label>Ciudad<input type="text" name="city" required placeholder="Ciudad y estado" /></label>
-          <label>Tipo de crédito<select name="service" required><option value="">Selecciona una opción</option><option>Compra de casa</option><option>Compra de terreno</option><option>Construcción</option><option>Liquidez hipotecaria</option><option>Mejora de hipoteca</option><option>Otro</option></select></label>
-          <label>Monto aproximado<input type="text" name="amount" placeholder="$" /></label>
-          <label>Mensaje<textarea name="message" rows="4" placeholder="Cuéntame brevemente qué necesitas"></textarea></label>
-          <button class="btn btn-primary" type="submit">Enviar por WhatsApp</button>
-        </form>
+    <section class="section home-contact-cta">
+      <div class="container home-cta-panel reveal">
+        <p class="section-kicker">COMENCEMOS</p>
+        <h2>Recibe asesoría personalizada para comparar tus opciones.</h2>
+        <a class="btn btn-primary" href="contacto.html">Solicitar asesoría</a>
       </div>
     </section>
   </main>
@@ -571,11 +248,12 @@
       </div>
       <div class="footer-col">
         <h3>Servicios</h3>
-        <a href="#servicios">Compra de casa</a>
-        <a href="#servicios">Compra de terreno</a>
-        <a href="#servicios">Construcción</a>
-        <a href="#servicios">Liquidez hipotecaria</a>
-        <a href="#servicios">Mejora de hipoteca</a>
+        <a href="servicios.html">Compra de casa</a>
+        <a href="servicios.html">Compra de terreno</a>
+        <a href="servicios.html">Construcción</a>
+        <a href="servicios.html">Liquidez hipotecaria</a>
+        <a href="servicios.html">Mejora de hipoteca</a>
+        <a href="servicios.html">Crédito para tu negocio</a>
       </div>
       <div class="footer-col">
         <h3>Contacto</h3>
