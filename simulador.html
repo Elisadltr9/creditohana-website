@@ -108,7 +108,7 @@
                 <p>Selecciona el plazo en el que deseas pagar tu crédito.</p>
               </div>
             </div>
-            <p class="estimator-helper"><span aria-hidden="true">i</span><strong>Esta simulación utiliza una tasa anual referencial de 10.50%.</strong> La tasa final dependerá de la institución financiera, el producto seleccionado y el perfil del solicitante.</p>
+            <p class="estimator-helper"><span aria-hidden="true">i</span><strong>Esta simulación utiliza una tasa anual referencial de 10.75%.</strong> La tasa final dependerá de la institución financiera, el producto seleccionado y el perfil del solicitante.</p>
           </form>
 
           <div class="estimator-results" aria-live="polite">
@@ -118,7 +118,7 @@
               <small>Capital e intereses</small>
             </div>
             <div class="result-card">
-              <span>Monto estimado del crédito</span>
+              <span>Monto financiado / crédito solicitado</span>
               <strong id="estimatedLoanAmount">$0 MXN</strong>
             </div>
             <div class="result-card">
@@ -131,15 +131,27 @@
               <small id="estimatedDownPaymentPercent">0%</small>
             </div>
             <div class="result-card">
+              <span>Tasa anual utilizada</span>
+              <strong id="estimatedAnnualRate">10.75%</strong>
+            </div>
+            <div class="result-card">
+              <span>Tasa mensual utilizada</span>
+              <strong id="estimatedMonthlyRate">0.8958%</strong>
+            </div>
+            <div class="result-card">
               <span>Plazo</span>
-              <strong id="estimatedTerm">20 años / 240 mensualidades</strong>
+              <strong id="estimatedTerm">20 años</strong>
+            </div>
+            <div class="result-card">
+              <span>Número de mensualidades</span>
+              <strong id="estimatedPaymentCount">240 mensualidades</strong>
             </div>
             <div class="result-card">
               <span>Ingreso mensual de referencia</span>
               <strong id="suggestedIncome">$0 MXN</strong>
               <small>Es únicamente una referencia. La institución financiera también evalúa historial crediticio, ingresos, deudas actuales y otros factores.</small>
             </div>
-            <p class="estimator-disclaimer">Esta simulación considera únicamente capital e intereses. No incluye seguros, comisiones, avalúo, escrituración, impuestos ni otros gastos que puedan aplicar.</p>
+            <p class="estimator-disclaimer">Esta simulación considera únicamente capital e intereses. No incluye seguros, comisiones, gastos de originación, avalúo, escrituración, impuestos ni otros gastos que puedan aplicar.</p>
             <p class="estimator-disclaimer">Los resultados son únicamente informativos y no representan una aprobación ni una oferta de crédito.</p>
             <p class="estimator-error" id="estimatorError" role="alert"></p>
             <a class="btn btn-primary estimator-button" id="estimatorCta" href="https://wa.me/528713373335?text=Hola%20Bego%C3%B1a%2C%20quiero%20una%20asesor%C3%ADa%20personalizada%20sobre%20mi%20simulaci%C3%B3n%20de%20cr%C3%A9dito." target="_blank" rel="noopener">Solicitar una asesoría personalizada</a>

@@ -90,12 +90,15 @@ const estimatedDownPayment=document.getElementById('estimatedDownPayment');
 const estimatedPropertyValue=document.getElementById('estimatedPropertyValue');
 const estimatedDownPaymentPercent=document.getElementById('estimatedDownPaymentPercent');
 const estimatedTerm=document.getElementById('estimatedTerm');
+const estimatedPaymentCount=document.getElementById('estimatedPaymentCount');
+const estimatedAnnualRate=document.getElementById('estimatedAnnualRate');
+const estimatedMonthlyRate=document.getElementById('estimatedMonthlyRate');
 const suggestedIncome=document.getElementById('suggestedIncome');
 const estimatorError=document.getElementById('estimatorError');
 const estimatorCta=document.getElementById('estimatorCta');
 // Tasa ilustrativa configurable. No representa una oferta, aprobación ni tasa autorizada.
 const CONFIGURACION_HIPOTECARIA={
-  tasaAnualReferencial:10.50,
+  tasaAnualReferencial:10.75,
   porcentajeIngresoReferencia:0.30,
   plazoMaximo:25
 };
@@ -105,6 +108,7 @@ const formatoMoneda=new Intl.NumberFormat("es-MX",{
   maximumFractionDigits:0
 });
 const formatCurrency=value=>`${formatoMoneda.format(Number.isFinite(value)?value:0)} MXN`;
+const formatRate=(value,digits=2)=>`${(Number.isFinite(value)?value:0).toFixed(digits)}%`;
 const setText=(element,value)=>{
   if(element) element.textContent=value;
 };
@@ -139,6 +143,16 @@ const syncLoanTermButtons=()=>{
     button.tabIndex=isActive?0:-1;
   });
 };
+const calcularTasaMensual=tasaAnual=>(Number(tasaAnual)||0)/100/12;
+const calcularMensualidadHipotecaria=({montoFinanciado,tasaAnual,numeroDePagos})=>{
+  const principal=Math.max(Number(montoFinanciado)||0,0);
+  const pagos=Math.max(Number(numeroDePagos)||0,0);
+  if(pagos<=0) return 0;
+  const tasaMensual=calcularTasaMensual(tasaAnual);
+  if(tasaMensual===0) return principal/pagos;
+  const factorCapitalizacion=Math.pow(1+tasaMensual,pagos);
+  return principal*(tasaMensual*factorCapitalizacion)/(factorCapitalizacion-1);
+};
 const getEstimatorValues=()=>{
   const valorInmueble=Math.max(parseAmount(propertyValueInput?.value),0);
   const plazoEnAnios=Number(loanTermInput?.value)||20;
@@ -150,25 +164,24 @@ const getEstimatorValues=()=>{
     enganchePesos=Math.min(Math.max(parseAmount(downPaymentInput?.value),0),valorInmueble);
   }
   const porcentajeEnganche=valorInmueble>0?enganchePesos/valorInmueble*100:0;
-  const montoCredito=Math.max(valorInmueble-enganchePesos,0);
+  const montoFinanciado=Math.max(valorInmueble-enganchePesos,0);
   const numeroDePagos=plazoEnAnios*12;
-  const tasaMensual=(CONFIGURACION_HIPOTECARIA.tasaAnualReferencial/100)/12;
-  const mensualidad=tasaMensual===0
-    ? montoCredito/numeroDePagos
-    : montoCredito*
-      (
-        tasaMensual*Math.pow(1+tasaMensual,numeroDePagos)
-      )/
-      (
-        Math.pow(1+tasaMensual,numeroDePagos)-1
-      );
+  const tasaAnual=CONFIGURACION_HIPOTECARIA.tasaAnualReferencial;
+  const tasaMensual=calcularTasaMensual(tasaAnual);
+  const mensualidad=calcularMensualidadHipotecaria({
+    montoFinanciado,
+    tasaAnual,
+    numeroDePagos
+  });
   const ingresoMensualReferencia=mensualidad/CONFIGURACION_HIPOTECARIA.porcentajeIngresoReferencia;
   return {
     valorInmueble,
     plazoEnAnios,
     enganchePesos,
     porcentajeEnganche,
-    montoCredito,
+    montoFinanciado,
+    tasaAnual,
+    tasaMensual,
     numeroDePagos,
     mensualidad,
     ingresoMensualReferencia
@@ -181,7 +194,7 @@ const calculateMortgage=()=>{
   if(values.plazoEnAnios>CONFIGURACION_HIPOTECARIA.plazoMaximo) errors.push('El plazo no puede superar 25 años.');
   if(![5,10,15,20,25].includes(values.plazoEnAnios)) errors.push('Selecciona un plazo válido de 5, 10, 15, 20 o 25 años.');
   if(values.enganchePesos>values.valorInmueble) errors.push('El enganche no puede ser mayor al valor del inmueble.');
-  if([values.montoCredito,values.mensualidad,values.ingresoMensualReferencia].some(value=>!Number.isFinite(value) || value<0)) errors.push('Revisa los datos capturados para generar una estimación válida.');
+  if([values.montoFinanciado,values.tasaMensual,values.mensualidad,values.ingresoMensualReferencia].some(value=>!Number.isFinite(value) || value<0)) errors.push('Revisa los datos capturados para generar una estimación válida.');
   if(downPaymentInput && downPaymentModeInput?.value==='amount' && parseAmount(downPaymentInput.value)>values.valorInmueble){
     downPaymentInput.value=formatCurrency(values.valorInmueble);
   }
@@ -192,16 +205,19 @@ const calculateMortgage=()=>{
     estimatorCta.removeAttribute('aria-disabled');
   }
   setText(estimatedPropertyValue,formatCurrency(values.valorInmueble));
-  setText(estimatedLoanAmount,formatCurrency(values.montoCredito));
+  setText(estimatedLoanAmount,formatCurrency(values.montoFinanciado));
   setText(estimatedMonthlyPayment,formatCurrency(errors.length?0:values.mensualidad));
   setText(estimatedDownPayment,formatCurrency(values.enganchePesos));
   setText(estimatedDownPaymentPercent,`${values.porcentajeEnganche.toFixed(2)}%`);
   setText(downPaymentSummaryAmount,formatCurrency(values.enganchePesos));
   setText(downPaymentSummary,`${values.porcentajeEnganche.toFixed(2)}% del valor del inmueble`);
-  setText(estimatedTerm,`${values.plazoEnAnios} años / ${values.numeroDePagos} mensualidades`);
+  setText(estimatedTerm,`${values.plazoEnAnios} años`);
+  setText(estimatedPaymentCount,`${values.numeroDePagos} mensualidades`);
+  setText(estimatedAnnualRate,formatRate(values.tasaAnual,2));
+  setText(estimatedMonthlyRate,formatRate(values.tasaMensual*100,4));
   setText(suggestedIncome,formatCurrency(errors.length?0:values.ingresoMensualReferencia));
   if(estimatorCta){
-    const message=`Hola Begoña, quiero una asesoría personalizada para mi simulación de crédito hipotecario. Valor del inmueble: ${formatCurrency(values.valorInmueble)}. Enganche: ${formatCurrency(values.enganchePesos)} (${values.porcentajeEnganche.toFixed(2)}%). Plazo: ${values.plazoEnAnios} años / ${values.numeroDePagos} mensualidades. Tasa anual referencial utilizada: ${CONFIGURACION_HIPOTECARIA.tasaAnualReferencial.toFixed(2)}%. Monto estimado del crédito: ${formatCurrency(values.montoCredito)}. Mensualidad estimada: ${formatCurrency(values.mensualidad)}.`;
+    const message=`Hola Begoña, quiero una asesoría personalizada para mi simulación de crédito hipotecario. Valor del inmueble: ${formatCurrency(values.valorInmueble)}. Enganche: ${formatCurrency(values.enganchePesos)} (${values.porcentajeEnganche.toFixed(2)}%). Monto financiado estimado: ${formatCurrency(values.montoFinanciado)}. Tasa anual referencial utilizada: ${formatRate(values.tasaAnual,2)}. Tasa mensual utilizada: ${formatRate(values.tasaMensual*100,4)}. Plazo: ${values.plazoEnAnios} años. Número de mensualidades: ${values.numeroDePagos}. Mensualidad estimada: ${formatCurrency(values.mensualidad)}.`;
     estimatorCta.href=`https://wa.me/528713373335?text=${encodeURIComponent(message)}`;
   }
 };
@@ -273,9 +289,11 @@ if(simulatorContactForm){
       'Resultado actual del simulador:',
       `Valor del inmueble: ${estimatedPropertyValue?.textContent||'No disponible'}.`,
       `Enganche: ${estimatedDownPayment?.textContent||'No disponible'} (${estimatedDownPaymentPercent?.textContent||'No disponible'}).`,
-      `Monto estimado del crédito: ${estimatedLoanAmount?.textContent||'No disponible'}.`,
+      `Monto financiado estimado: ${estimatedLoanAmount?.textContent||'No disponible'}.`,
+      `Tasa anual utilizada: ${estimatedAnnualRate?.textContent||'No disponible'}.`,
+      `Tasa mensual utilizada: ${estimatedMonthlyRate?.textContent||'No disponible'}.`,
       `Plazo: ${estimatedTerm?.textContent||'No disponible'}.`,
-      `Tasa utilizada: ${CONFIGURACION_HIPOTECARIA.tasaAnualReferencial.toFixed(2)}%.`,
+      `Número de mensualidades: ${estimatedPaymentCount?.textContent||'No disponible'}.`,
       `Mensualidad estimada: ${estimatedMonthlyPayment?.textContent||'No disponible'}.`,
       `Ingreso mensual sugerido: ${suggestedIncome?.textContent||'No disponible'}.`
     ].join(' ');
