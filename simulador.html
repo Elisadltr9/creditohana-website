@@ -71,7 +71,7 @@
                     <span class="field-icon" aria-hidden="true">
                       <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M17 7.5A4 4 0 0 0 12.8 6H10a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-3.2A4 4 0 0 1 7 16.5"/></svg>
                     </span>
-                    <input type="text" id="downPayment" inputmode="decimal" value="$400,000 MXN" placeholder="$400,000 MXN" />
+                    <input type="text" id="downPayment" inputmode="decimal" value="$300,000 MXN" placeholder="$300,000 MXN" />
                   </div>
                   <select class="sr-only" id="downPaymentMode" aria-label="Formato del enganche">
                     <option value="amount" selected>MXN</option>
@@ -83,9 +83,34 @@
                   <button type="button" data-down-payment-mode="percent" aria-pressed="false">%</button>
                 </div>
                 <div class="down-payment-summary-card">
-                  <strong id="downPaymentSummaryAmount">$400,000 MXN</strong>
-                  <span id="downPaymentSummary">13.33% del valor del inmueble</span>
+                  <strong id="downPaymentSummaryAmount">$300,000 MXN</strong>
+                  <span id="downPaymentSummary">10.00% del valor del inmueble</span>
                 </div>
+              </div>
+              <div class="estimator-input-block">
+                <label class="field" for="institutionRate">
+                  <span>Institución / esquema</span>
+                  <div class="field-shell select-shell">
+                    <span class="field-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M4 10h16"/><path d="M5 10l7-6 7 6"/><path d="M6 10v9"/><path d="M10 10v9"/><path d="M14 10v9"/><path d="M18 10v9"/><path d="M4 19h16"/></svg>
+                    </span>
+                    <select id="institutionRate"></select>
+                  </div>
+                </label>
+                <p id="selectedInstitutionNote">Tasa anual de referencia editable. No representa aprobación ni oferta de crédito.</p>
+              </div>
+              <div class="estimator-input-block">
+                <label class="field" for="annualRate">
+                  <span>Tasa anual</span>
+                  <div class="field-shell">
+                    <span class="field-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M19 5 5 19"/><circle cx="7" cy="7" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+                    </span>
+                    <input type="text" id="annualRate" inputmode="decimal" value="10.75%" placeholder="10.75%" />
+                    <span class="field-unit">% anual</span>
+                  </div>
+                </label>
+                <p>La tasa mensual equivalente se calcula como tasa anual / 12.</p>
               </div>
               <div class="estimator-input-block">
                 <label class="field" for="loanTerm">
@@ -107,15 +132,70 @@
                 </div>
                 <p>Selecciona el plazo en el que deseas pagar tu crédito.</p>
               </div>
+              <div class="estimator-input-block">
+                <label class="field" for="debtRatio">
+                  <span>Porcentaje máximo de endeudamiento</span>
+                  <select class="sr-only" id="debtRatio">
+                    <option value="0.30">30%</option>
+                    <option value="0.35" selected>35%</option>
+                    <option value="0.40">40%</option>
+                  </select>
+                </label>
+                <div class="segmented-control debt-ratio-control" role="group" aria-label="Porcentaje máximo de endeudamiento">
+                  <button type="button" data-debt-ratio="0.30" aria-pressed="false">30%</button>
+                  <button class="active" type="button" data-debt-ratio="0.35" aria-pressed="true">35%</button>
+                  <button type="button" data-debt-ratio="0.40" aria-pressed="false">40%</button>
+                </div>
+                <p>Ingreso recomendado = pago mensual total / porcentaje máximo de endeudamiento.</p>
+              </div>
+              <div class="estimator-input-block insurance-input-block">
+                <div class="insurance-field-heading">
+                  <strong>Seguros y comisión mensual</strong>
+                  <span>Opcionales, editables y calculados por separado.</span>
+                </div>
+                <div class="insurance-field-grid">
+                  <label class="field" for="lifeInsuranceRate">
+                    <span>Vida sobre saldo insoluto</span>
+                    <div class="field-shell">
+                      <input type="text" id="lifeInsuranceRate" inputmode="decimal" value="0.75%" placeholder="0.75%" />
+                      <span class="field-unit">% anual</span>
+                    </div>
+                  </label>
+                  <label class="field" for="propertyInsuranceRate">
+                    <span>Daños sobre valor del inmueble</span>
+                    <div class="field-shell">
+                      <input type="text" id="propertyInsuranceRate" inputmode="decimal" value="0.35%" placeholder="0.35%" />
+                      <span class="field-unit">% anual</span>
+                    </div>
+                  </label>
+                  <label class="field" for="monthlyCommission">
+                    <span>Comisión mensual</span>
+                    <div class="field-shell">
+                      <input type="text" id="monthlyCommission" inputmode="numeric" value="$305 MXN" placeholder="$0 MXN" />
+                      <span class="field-unit">MXN</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
             </div>
-            <p class="estimator-helper"><span aria-hidden="true">i</span><strong>Esta simulación utiliza una tasa anual referencial de 10.75%.</strong> La tasa final dependerá de la institución financiera, el producto seleccionado y el perfil del solicitante.</p>
+            <p class="estimator-helper"><span aria-hidden="true">i</span><strong>Esta simulación utiliza tasas anuales de referencia, editables por el usuario.</strong> La tasa final dependerá de la institución financiera, el producto seleccionado, los seguros contratados y el perfil del solicitante.</p>
           </form>
 
           <div class="estimator-results" aria-live="polite">
             <div class="result-card accent">
-              <span>Mensualidad estimada</span>
+              <span>Pago mensual total estimado</span>
               <strong id="estimatedMonthlyPayment">$0 MXN</strong>
-              <small>Capital e intereses</small>
+              <small>Capital e intereses + seguros + comisión mensual</small>
+            </div>
+            <div class="result-card">
+              <span>Capital e intereses</span>
+              <strong id="estimatedPrincipalInterest">$0 MXN</strong>
+              <small>Fórmula de amortización francesa</small>
+            </div>
+            <div class="result-card">
+              <span>Seguros y comisión mensual</span>
+              <strong id="estimatedInsuranceTotal">$0 MXN</strong>
+              <small>Vida: <span id="estimatedLifeInsurance">$0 MXN</span> · Daños: <span id="estimatedPropertyInsurance">$0 MXN</span> · Comisión: <span id="estimatedMonthlyCommission">$0 MXN</span></small>
             </div>
             <div class="result-card">
               <span>Monto financiado / crédito solicitado</span>
@@ -135,7 +215,7 @@
               <strong id="estimatedAnnualRate">10.75%</strong>
             </div>
             <div class="result-card">
-              <span>Tasa mensual utilizada</span>
+              <span>Tasa mensual equivalente</span>
               <strong id="estimatedMonthlyRate">0.8958%</strong>
             </div>
             <div class="result-card">
@@ -149,14 +229,39 @@
             <div class="result-card">
               <span>Ingreso mensual de referencia</span>
               <strong id="suggestedIncome">$0 MXN</strong>
-              <small>Es únicamente una referencia. La institución financiera también evalúa historial crediticio, ingresos, deudas actuales y otros factores.</small>
+              <small>Calculado con un endeudamiento máximo de <span id="estimatedDebtRatio">35%</span>. La institución financiera también evalúa historial crediticio, ingresos, deudas actuales y otros factores.</small>
             </div>
-            <p class="estimator-disclaimer">Esta simulación considera únicamente capital e intereses. No incluye seguros, comisiones, gastos de originación, avalúo, escrituración, impuestos ni otros gastos que puedan aplicar.</p>
-            <p class="estimator-disclaimer">Los resultados son únicamente informativos y no representan una aprobación ni una oferta de crédito.</p>
+            <p class="estimator-disclaimer">Esta simulación separa capital, intereses, seguros y comisión mensual. No incluye gastos de originación, avalúo, escrituración, impuestos ni otros gastos únicos que puedan aplicar, salvo que los captures como comisión mensual.</p>
+            <p class="estimator-disclaimer">Estimación informativa, no oferta vinculante. Los resultados no representan aprobación ni condiciones definitivas de ninguna institución.</p>
             <p class="estimator-error" id="estimatorError" role="alert"></p>
             <a class="btn btn-primary estimator-button" id="estimatorCta" href="https://wa.me/528713373335?text=Hola%20Bego%C3%B1a%2C%20quiero%20una%20asesor%C3%ADa%20personalizada%20sobre%20mi%20simulaci%C3%B3n%20de%20cr%C3%A9dito." target="_blank" rel="noopener">Solicitar una asesoría personalizada</a>
           </div>
         </div>
+        <section class="amortization-section reveal" aria-labelledby="amortizationTitle">
+          <div class="amortization-heading">
+            <div>
+              <p class="section-kicker">AMORTIZACIÓN</p>
+              <h3 id="amortizationTitle">Tabla de amortización estimada</h3>
+            </div>
+            <p>Los seguros se calculan por separado: vida sobre saldo insoluto, daños sobre valor del inmueble y comisión mensual fija si aplica.</p>
+          </div>
+          <div class="amortization-table-wrap">
+            <table class="amortization-table">
+              <thead>
+                <tr>
+                  <th>Periodo</th>
+                  <th>Saldo inicial</th>
+                  <th>Interés</th>
+                  <th>Amortización</th>
+                  <th>Seguros</th>
+                  <th>Pago total</th>
+                  <th>Saldo final</th>
+                </tr>
+              </thead>
+              <tbody id="amortizationTableBody"></tbody>
+            </table>
+          </div>
+        </section>
         <div class="estimator-followup reveal">
           <article class="simulator-note">
             <h3>Nota importante</h3>
